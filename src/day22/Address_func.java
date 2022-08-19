@@ -266,4 +266,29 @@ public class Address_func {
 			}
 		}
 	}
+	/**
+	 * function to get the count of persons belonging to particular city
+	 */
+	public void getCount() {
+		int c = 1, count=0;
+		System.out.println("Select the book");
+		for (String name : map.keySet()) {
+			System.out.println(+c + "." + name);
+			lis.add(name);
+			c++;
+		}
+		c = 1;
+		int choice = sc.nextInt();
+		String slectedBook = lis.get(choice - 1);
+		lis.clear();
+		System.out.println("Enter the city name to get the number of users");
+		String city = sc.next();
+		lis1 = map.get(slectedBook);
+		for (Address_func contact : lis1) {
+			if (city.equals(contact.city)) {
+				count+=1;
+			}
+		}
+		System.out.println("No of persons in "+city+" is ="+count);
+	}
 }
