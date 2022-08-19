@@ -12,7 +12,7 @@ public class AddressMain {
 		Address_func af = new Address_func();
 		System.out.println("Welcome to address book");
 		while(true) {
-			System.out.println("1.Create a new Addressbook\t2.Add contacts\t3.Exit program");
+			System.out.println("1.Create a new Addressbook\t2.Add contacts\t3.Fetch contact details");
 			int ch = sc.nextInt();
 			switch(ch) {
 			case 1:
@@ -22,7 +22,7 @@ public class AddressMain {
 				af.addContact();
 				break;
 			case 3:
-				System.exit(1);
+				af.display();
 				break;
 			}
 		}

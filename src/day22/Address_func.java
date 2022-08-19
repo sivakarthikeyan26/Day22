@@ -17,7 +17,7 @@ public class Address_func {
 	Map<String, ArrayList<Address_func>> map = new HashMap<String, ArrayList<Address_func>>();
 	Scanner sc = new Scanner(System.in);
 	List<String> lis = new ArrayList<String>();
-	
+	List<Address_func> lis1 = new ArrayList<Address_func>();
 	public Address_func() {
 		
 	}
@@ -135,6 +135,39 @@ public class Address_func {
 		System.out.println("Enter the name of your book");
 		String bookName = sc.next();
 		map.put(bookName, new ArrayList<Address_func>());
+	}
+	
+	/**
+	 * function to display the contact details
+	 */
+	public void display() {
+		int c=1;
+		System.out.println("Select the book");
+		for(String name : map.keySet()) {
+			System.out.println(+c+"."+name);
+			lis.add(name);
+			c++;
+		}
+		c=1;
+		int choice = sc.nextInt();
+		String slectedBook= lis.get(choice-1);
+		lis.clear();
+		System.out.println("Enter the First Name of the person to display his/her details");
+		String firstname = sc.next();
+		lis1 = map.get(slectedBook);
+		for(Address_func contact : lis1) {
+			if(firstname.equals(contact.firstName)){
+				System.out.println("First name = "+contact.firstName);
+				System.out.println("last name = "+contact.lastName);
+				System.out.println("address = "+contact.address);
+				System.out.println("city = "+contact.city);
+				System.out.println("State = "+contact.state);
+				System.out.println("phone number = "+contact.phno);
+				System.out.println("Email id = "+contact.email);
+				return;
+			}
+		}
+		System.out.println("No such contacts found in "+slectedBook);
 	}
 	
 }
