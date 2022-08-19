@@ -170,4 +170,44 @@ public class Address_func {
 		System.out.println("No such contacts found in "+slectedBook);
 	}
 	
+	/**
+	 * method to edit contacts
+	 */
+	public void editContacts() {
+		int c=1;
+		System.out.println("Select the book");
+		for(String name : map.keySet()) {
+			System.out.println(+c+"."+name);
+			lis.add(name);
+			c++;
+		}
+		c=1;
+		int choice = sc.nextInt();
+		String slectedBook= lis.get(choice-1);
+		lis.clear();
+		System.out.println("Enter the First Name of the person to edit his/her details");
+		String firstname = sc.next();
+		lis1 = map.get(slectedBook);
+		for(Address_func contact : lis1) {
+			if(firstname.equals(contact.firstName)){
+				System.out.println("1.Edit Address\t2.Edit Phone number");
+				int ch = sc.nextInt();
+				switch(ch) {
+				case 1:
+					System.out.println("Enter the new address");
+					String add = sc.next();
+					contact.setAddress(add);
+					break;
+				case 2:
+					System.out.println("Enter the new Phone number");
+					double ph = sc.nextDouble();
+					contact.setPhno(ph);
+					break;
+				}
+				return;
+			}
+		}
+		System.out.println("No such contacts found in "+slectedBook);
+	}
+	
 }
